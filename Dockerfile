@@ -20,10 +20,11 @@ ENV CONF_FILES=/conf
 
 # installing aspnet core runtime for ubuntu
 RUN apt-get update && \
-    apt-get install -y wget && wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+    apt-get install -y wget curl vim && \
+    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
     dpkg --purge packages-microsoft-prod && dpkg -i packages-microsoft-prod.deb && \
     apt-get update && \
-    apt-get install aspnetcore-runtime-3.1 curl vim -y && \
+    apt-get install aspnetcore-runtime-3.1 -y && \
     rm packages-microsoft-prod.deb 
 
 # Kafka SASL directory (keytab is placed here) and conf files (krb5.conf is placed here for krb5-user)
