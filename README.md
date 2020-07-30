@@ -1,0 +1,1 @@
+# dotnet-kerberos-auth-docker
